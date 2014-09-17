@@ -1,13 +1,26 @@
 #!/usr/bin/python
 
-# As the new semester begins, the department is offering free ice cream
-# for every student, but they don't want any students have more than 1 ice cream,
-# because there is limited amount of ice cream. However, bad thing happens. There is
-# a student, who managed to eat 2 ice creams. The department wants you to design
-# an algorithm to find the name of the student, and in return you will get an extra ice
-# cream. Given an array of names your job is to find the name of the student, who had
-# 2 ice creams. Give the worst case running time of your algorithm using big-Theta notation. (You
-# may use any algorithm presented in class.)
+#
+# Find a student who ate two ice creams. 
+#
+#
+
+mylist = [8, 2, 4, 9, 3, 6, 4] # list elements in array mylist
+print '%s <<initial list' % mylist
+
+for j in range(1, len(mylist)):   # start from index 1 where list element 2 sits
+  key = mylist[j]  	# list element inside array
+  i = j	   		# j is an array (counter) index
+
+  while i > 0 and mylist[i-1] > key:    # we start at location 2 - 1 => 8
+    #print mylist[i-1], 
+    mylist[i] = mylist[i-1]     # swap array elements because right is smaller then left
+    i = i - 1                   # 'i' is the counter to end while loop. 'j' gives 'i' counter from for loop.
+    mylist[i] = key
+    print mylist
+    if mylist[i-1] == mylist[i]:
+      print "student found: %i" % mylist[i]
 
 
-
+# sorted list    
+print '%s <<end result' % mylist
